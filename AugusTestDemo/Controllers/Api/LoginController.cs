@@ -12,42 +12,29 @@ namespace AugusTestDemo.Controllers.Api
     [Route("api/[controller]/[action]")]
     public class LoginController : Controller
     {
-        //// GET: api/values
-        //[HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
-
-        //// GET api/values/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
-
+       
         /// <summary>
-        /// test
+        /// 電話登入
         /// </summary>
         /// <param name="phoneLogin"></param>
         /// <returns></returns>
-        // POST api/values
+        // POST api/Login/UsePhoneLogin
         [HttpPost]
-        public BaseResponce UsePhoneLogin([FromBody] PhoneLogin phoneLogin)
+        public BaseResponce<object> UsePhoneLogin([FromBody] PhoneLogin phoneLogin)
         {
-            return new BaseResponce() { Code = 200 };
+            return new BaseResponce<object>() { Code = 200, DateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") };
         }
 
-        //// PUT api/values/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody] string value)
-        //{
-        //}
-
-        //// DELETE api/values/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
+        /// <summary>
+        /// FB登入
+        /// </summary>
+        /// <param name="fbLogin"></param>
+        /// <returns></returns>
+        // POST api/Login/UseFbLogin
+        [HttpPost]
+        public BaseResponce<object> UseFbLogin([FromBody] FbLogin fbLogin)
+        {
+            return new BaseResponce<object>() { Code = 200, DateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") };
+        }
     }
 }
