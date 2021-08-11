@@ -1,0 +1,35 @@
+﻿body {
+}
+
+/* menu的修改 */
+/*.navbar-brand{
+    text-align: center;
+}*/
+/*
+    .navbar-light .navbar-toggler 覆蓋原始bootstrap.css上的設定(同名)
+    .navbar-button-info 新增menu按鈕的位置
+    .navbar-toggler-info:focus 覆蓋bootstrap.css上 .navbar-toggler:focus 的設定 
+*/
+.navbar-light .navbar-toggler {
+    color: rgba(180,30,0,.55);
+    border-color: rgba(180,30,0,1);
+}
+
+.navbar-button-info {
+    position: absolute;
+    top: .5rem;
+    right: var(--bs-gutter-x,.75rem);
+}
+
+.navbar-toggler-info:focus {
+    text-decoration: none;
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem;
+}
+
+/*
+    .navbar-title-info 新增nav 公司名 的位置
+*/
+.navbar-title-info {
+    margin: 0 auto;
+}
