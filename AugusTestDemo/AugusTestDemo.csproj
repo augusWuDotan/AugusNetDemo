@@ -14,6 +14,7 @@
     <None Remove="Microsoft.Extensions.Logging.AzureAppServices" />
     <None Remove="Microsoft.Extensions.Configuration.Json" />
     <None Remove="Microsoft.Extensions.Configuration.Binder" />
+    <None Remove="Data\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.5" />
@@ -31,6 +32,7 @@
     <Folder Include="Controllers\Api\" />
     <Folder Include="Models\Bean\" />
     <Folder Include="wwwroot\image\" />
+    <Folder Include="Data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\image\" />
