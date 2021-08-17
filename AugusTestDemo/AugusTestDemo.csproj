@@ -15,6 +15,10 @@
   <ItemGroup>
     <Folder Include="Controllers\Api\" />
     <Folder Include="Models\Bean\" />
+    <Folder Include="wwwroot\image\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="Views\Home\Index.cshtml">
