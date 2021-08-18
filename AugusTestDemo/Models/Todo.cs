@@ -8,6 +8,7 @@ namespace AugusTestDemo.Models
         public int ID { get; set; }
         public string Description { get; set; }
         public string DescriptionNote { get; set; }
+        //public string DescriptionTest { get; set; }
 
         [Display(Name = "Created Date")]
         [DataType(DataType.Date)]
