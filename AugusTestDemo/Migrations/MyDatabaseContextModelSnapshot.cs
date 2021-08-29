@@ -32,9 +32,35 @@ namespace AugusTestDemo.Migrations
                     b.Property<string>("Path")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("ProductID")
+                        .HasColumnType("int");
+
                     b.HasKey("ID");
 
+                    b.HasIndex("ProductID");
+
                     b.ToTable("FeatherImage");
+                });
+
+            modelBuilder.Entity("AugusTestDemo.Models.FeatherBean.Product", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ProductInfo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProductRule")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Product");
                 });
 
             modelBuilder.Entity("AugusTestDemo.Models.Todo", b =>
@@ -56,6 +82,20 @@ namespace AugusTestDemo.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Todo");
+                });
+
+            modelBuilder.Entity("AugusTestDemo.Models.FeatherBean.FeatherImage", b =>
+                {
+                    b.HasOne("AugusTestDemo.Models.FeatherBean.Product", null)
+                        .WithMany("FeatherImages")
+                        .HasForeignKey("ProductID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
+            modelBuilder.Entity("AugusTestDemo.Models.FeatherBean.Product", b =>
+                {
+                    b.Navigation("FeatherImages");
                 });
 #pragma warning restore 612, 618
         }
