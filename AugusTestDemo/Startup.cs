@@ -42,6 +42,9 @@ namespace AugusTestDemo
                     options.UseSqlServer(Configuration.GetConnectionString("MyDbConnection")));
 #endif
 
+            //Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore 套件
+            //db相關錯誤
+            services.AddDatabaseDeveloperPageExceptionFilter(); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
