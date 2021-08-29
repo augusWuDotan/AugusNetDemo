@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AugusTestDemo.Migrations
 {
     [DbContext(typeof(MyDatabaseContext))]
-    [Migration("20210829081937_init")]
+    [Migration("20210829094131_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -59,6 +59,9 @@ namespace AugusTestDemo.Migrations
 
                     b.Property<string>("ProductRule")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ProductTypeID")
+                        .HasColumnType("int");
 
                     b.HasKey("ID");
 

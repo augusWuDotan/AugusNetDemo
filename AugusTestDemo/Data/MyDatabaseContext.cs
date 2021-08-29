@@ -20,6 +20,7 @@ namespace AugusTestDemo.Data
             modelBuilder.Entity<AugusTestDemo.Models.Todo>().ToTable("Todo");
             modelBuilder.Entity<Models.FeatherBean.FeatherImage>().ToTable("FeatherImage");
             modelBuilder.Entity<Models.FeatherBean.Product>().ToTable("Product");
+            modelBuilder.Entity<Models.FeatherBean.ProductType>().ToTable("ProductType");
         }
     }
 }
