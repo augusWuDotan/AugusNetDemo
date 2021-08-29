@@ -1,17 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace AugusTestDemo.Models.FeatherBean
 {
-    public class FeatherImage
+    //產品
+    public class Product
     {
         public int ID { get; set; }
-        //路徑
-        public string Path { get; set; }
-        //產品ID
-        public int ProductID { get; set; }
+        //產品規格 
+        public string ProductRule { get; set; }
+        //產品說明
+        public string ProductInfo { get; set; }
         //建立時間
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime CreatedDate { get; set; }
+
+        public List<FeatherImage> FeatherImages { get; set; }
     }
 }
