@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AugusTestDemo.Data;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -30,7 +31,8 @@ namespace AugusTestDemo
                 try
                 {
                     var context = services.GetRequiredService<MyDatabaseContext>();
-                    context.Database.EnsureCreated();
+                    context.Database.Migrate();
+                    //context.Database.EnsureCreated();
                 }
                 catch (Exception ex)
                 {
