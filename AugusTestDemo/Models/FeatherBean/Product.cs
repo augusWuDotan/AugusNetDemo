@@ -18,6 +18,7 @@ namespace AugusTestDemo.Models.FeatherBean
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime CreatedDate { get; set; }
 
+        //產品包含的圖片
         public List<FeatherImage> FeatherImages { get; set; }
     }
 }

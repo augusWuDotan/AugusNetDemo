@@ -4,38 +4,22 @@ using AugusTestDemo.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace AugusTestDemo.Migrations
 {
     [DbContext(typeof(MyDatabaseContext))]
-    partial class MyDatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20210829145458_addWithCustomizedService")]
+    partial class addWithCustomizedService
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.9")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("AugusTestDemo.Models.FeatherBean.BrandStory", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("BrandStoryImagePath")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BrandStoryIntroduction")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("BrandStory");
-                });
 
             modelBuilder.Entity("AugusTestDemo.Models.FeatherBean.ColorOfTheSeason", b =>
                 {
@@ -250,9 +234,6 @@ namespace AugusTestDemo.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int?>("BrandStoryID")
-                        .HasColumnType("int");
-
                     b.Property<int?>("ColorOfTheSeasonID")
                         .HasColumnType("int");
 
@@ -262,12 +243,7 @@ namespace AugusTestDemo.Migrations
                     b.Property<int?>("DesignerManuscriptID")
                         .HasColumnType("int");
 
-                    b.Property<int?>("LatestEventsID")
-                        .HasColumnType("int");
-
                     b.HasKey("ID");
-
-                    b.HasIndex("BrandStoryID");
 
                     b.HasIndex("ColorOfTheSeasonID");
 
@@ -275,67 +251,7 @@ namespace AugusTestDemo.Migrations
 
                     b.HasIndex("DesignerManuscriptID");
 
-                    b.HasIndex("LatestEventsID");
-
                     b.ToTable("HomePage");
-                });
-
-            modelBuilder.Entity("AugusTestDemo.Models.FeatherBean.LatestEvents", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("LatestEventsModeID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("LatestEventsModeID");
-
-                    b.ToTable("LatestEvents");
-                });
-
-            modelBuilder.Entity("AugusTestDemo.Models.FeatherBean.LatestEventsImage", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("LatestEventsModeID")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Path")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("LatestEventsModeID");
-
-                    b.ToTable("LatestEventsImage");
-                });
-
-            modelBuilder.Entity("AugusTestDemo.Models.FeatherBean.LatestEventsMode", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("ModeMessage")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ModeRule")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("LatestEventsMode");
                 });
 
             modelBuilder.Entity("AugusTestDemo.Models.FeatherBean.Product", b =>
@@ -480,10 +396,6 @@ namespace AugusTestDemo.Migrations
 
             modelBuilder.Entity("AugusTestDemo.Models.FeatherBean.HomePage", b =>
                 {
-                    b.HasOne("AugusTestDemo.Models.FeatherBean.BrandStory", "BrandStory")
-                        .WithMany()
-                        .HasForeignKey("BrandStoryID");
-
                     b.HasOne("AugusTestDemo.Models.FeatherBean.ColorOfTheSeason", "ColorOfTheSeason")
                         .WithMany()
                         .HasForeignKey("ColorOfTheSeasonID");
@@ -496,39 +408,11 @@ namespace AugusTestDemo.Migrations
                         .WithMany()
                         .HasForeignKey("DesignerManuscriptID");
 
-                    b.HasOne("AugusTestDemo.Models.FeatherBean.LatestEvents", "LatestEvents")
-                        .WithMany()
-                        .HasForeignKey("LatestEventsID");
-
-                    b.Navigation("BrandStory");
-
                     b.Navigation("ColorOfTheSeason");
 
                     b.Navigation("CustomizedService");
 
                     b.Navigation("DesignerManuscript");
-
-                    b.Navigation("LatestEvents");
-                });
-
-            modelBuilder.Entity("AugusTestDemo.Models.FeatherBean.LatestEvents", b =>
-                {
-                    b.HasOne("AugusTestDemo.Models.FeatherBean.LatestEventsMode", "LatestEventsMode")
-                        .WithMany()
-                        .HasForeignKey("LatestEventsModeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("LatestEventsMode");
-                });
-
-            modelBuilder.Entity("AugusTestDemo.Models.FeatherBean.LatestEventsImage", b =>
-                {
-                    b.HasOne("AugusTestDemo.Models.FeatherBean.LatestEventsMode", null)
-                        .WithMany("LatestEventsImages")
-                        .HasForeignKey("LatestEventsModeID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("AugusTestDemo.Models.FeatherBean.Product", b =>
@@ -553,11 +437,6 @@ namespace AugusTestDemo.Migrations
             modelBuilder.Entity("AugusTestDemo.Models.FeatherBean.DesignerManuscriptMode", b =>
                 {
                     b.Navigation("DesignerManuscriptImages");
-                });
-
-            modelBuilder.Entity("AugusTestDemo.Models.FeatherBean.LatestEventsMode", b =>
-                {
-                    b.Navigation("LatestEventsImages");
                 });
 
             modelBuilder.Entity("AugusTestDemo.Models.FeatherBean.Product", b =>
