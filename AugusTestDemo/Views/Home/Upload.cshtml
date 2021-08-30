@@ -1,0 +1,64 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@*@{
+        ViewData["Title"] = "Buffered Double File Upload (Physical)";
+    }
+
+    <h1>Upload two buffered files to physical storage with two file upload controls</h1>
+
+    <p>The following form's page handler saves the files to disk.</p>
+
+    <form method="post" enctype="multipart/form-data" action="/api/FileUpload/Post">
+        <input type="file" name="files" multiple />
+        <br />
+        <input type="submit" value="送出" />
+    </form>
+
+    <p class="result">
+
+    </p>
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }*@
+
+@{
+    ViewData["Title"] = "图片上传到服务端";
+}
+
+<h1>图片上传到服务端</h1>
+
+<div class="text-center">
+    <p><input type="file" id="imageFile" onchange="uploadImage(this)" /></p>
+</div>
+
+<div id="imageBox" src="~/Image/2018-05-29-173945_51127758204_o.jpg">
+
+</div>
+
+<script type="text/javascript">
+    //图片上传
+    function uploadImage(fileObject) {
+        var formData = new FormData();
+        var files = $(fileObject).prop('files'); //获取到文件列表【$("#imageFile").get(0)通过id获取文件列表】
+        formData.append("file", files[0]);//图片文件流
+        console.log('formData=>>>', formData, files);
+        $.ajax({
+                async: true,
+                url:"@Url.Action("Post", "FileUpload")",
+                type: 'post',
+                data: formData,
+                //https://segmentfault.com/a/1190000007207128?utm_source=tag-newest
+                //在 ajax 中 contentType 设置为 false 是为了避免 JQuery 对其操作，从而失去分界符，而使服务器不能正常解析文件
+                contentType: false,
+                //告诉jQuery不要去处理发送的数据
+                processData: false,
+                success: function (res) {
+                    console.log(res);
+                    $("#imageBox").append("<img width='100' height='100' src=" + res.path + ">");
+                }
+              });
+    }
+</script>
