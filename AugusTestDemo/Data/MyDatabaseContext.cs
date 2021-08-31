@@ -12,8 +12,29 @@ namespace AugusTestDemo.Data
 
         public DbSet<Models.Todo> Todo { get; set; }
 
-        public DbSet<Models.FeatherBean.FeatherImage> FeatherImage { get; set; }
-        public DbSet<Models.FeatherBean.Product> Product { get; set; }
+        public DbSet<Models.FeatherBean.FeatherImage> FeatherImages { get; set; }
+        public DbSet<Models.FeatherBean.Product> Products { get; set; }
+        public DbSet<Models.FeatherBean.ProductType> ProductTypes { get; set; }
+
+        public DbSet<Models.FeatherBean.HomePage> HomePage { get; set; }
+
+        public DbSet<Models.FeatherBean.ColorOfTheSeason> ColorOfTheSeason { get; set; }
+        public DbSet<Models.FeatherBean.ColorOfTheSeasonMode> ColorOfTheSeasonModes { get; set; }
+        public DbSet<Models.FeatherBean.ColorOfTheSeasonImage> ColorOfTheSeasonImages { get; set; }
+
+        public DbSet<Models.FeatherBean.DesignerManuscript> DesignerManuscript { get; set; }
+        public DbSet<Models.FeatherBean.DesignerManuscriptMode> DesignerManuscriptModes { get; set; }
+        public DbSet<Models.FeatherBean.DesignerManuscriptImage> DesignerManuscriptImages { get; set; }
+
+        public DbSet<Models.FeatherBean.CustomizedService> CustomizedService { get; set; }
+        public DbSet<Models.FeatherBean.CustomizedServiceMode> CustomizedServiceModes { get; set; }
+        public DbSet<Models.FeatherBean.CustomizedServiceImage> CustomizedServiceImages { get; set; }
+
+        public DbSet<Models.FeatherBean.LatestEvents> LatestEvents { get; set; }
+        public DbSet<Models.FeatherBean.LatestEventsMode> LatestEventsModes { get; set; }
+        public DbSet<Models.FeatherBean.LatestEventsImage> LatestEventsImages { get; set; }
+
+        public DbSet<Models.FeatherBean.BrandStory> BrandStory { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -40,6 +61,8 @@ namespace AugusTestDemo.Data
             modelBuilder.Entity<Models.FeatherBean.LatestEvents>().ToTable("LatestEvents");
             modelBuilder.Entity<Models.FeatherBean.LatestEventsMode>().ToTable("LatestEventsMode");
             modelBuilder.Entity<Models.FeatherBean.LatestEventsImage>().ToTable("LatestEventsImage");
+            //品牌故事
+            modelBuilder.Entity<Models.FeatherBean.BrandStory>().ToTable("BrandStory");
         }
     }
 }

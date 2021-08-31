@@ -32,10 +32,11 @@ namespace AugusTestDemo.Controllers.Api
         [HttpPost]
         public async Task<BaseResponce<Product>> GetProductWithId(int id)
         {
-            var product = await _context.Product
+            var product = await _context.Products
                  .Include(s => s.FeatherImages)
                   .AsNoTracking()
                  .FirstOrDefaultAsync(m => m.ID == id);
+            
             return new BaseResponce<Product>()
             {
                 Code = 200,

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AugusTestDemo.Migrations
 {
     [DbContext(typeof(MyDatabaseContext))]
-    [Migration("20210829150717_addWithBrandStory")]
-    partial class addWithBrandStory
+    [Migration("20210831033355_init")]
+    partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
