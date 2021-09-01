@@ -29,7 +29,7 @@ namespace AugusTestDemo.Controllers.Api
         /// <param name="id"></param>
         /// <returns></returns>
         // POST api/TestDb/GetProductWithId
-        [HttpPost]
+        [HttpGet]
         public async Task<BaseResponce<Product>> GetProductWithId(int id)
         {
             var product = await _context.Products

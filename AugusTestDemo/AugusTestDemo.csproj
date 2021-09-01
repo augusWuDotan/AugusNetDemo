@@ -18,6 +18,8 @@
     <None Remove="Migrations\" />
     <None Remove="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" />
     <None Remove="Models\FeatherBean\" />
+    <None Remove="Views\AdminLogin\" />
+    <None Remove="Models\Base\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.5" />
@@ -39,6 +41,8 @@
     <Folder Include="Data\" />
     <Folder Include="Migrations\" />
     <Folder Include="Models\FeatherBean\" />
+    <Folder Include="Views\AdminLogin\" />
+    <Folder Include="Models\Base\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\image\" />

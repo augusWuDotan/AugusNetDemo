@@ -1,3 +1,17 @@
 ﻿@{
-    Layout = "_Layout";
+    //取得Controller、Action
+    var currentController = ViewContext.RouteData.Values["Controller"].ToString();
+    var currentAction = ViewContext.RouteData.Values["Action"].ToString();
+
+    //需要前往admin的
+    List<string> myControllers = new List<string> { "AdminLogin" };
+
+    if (myControllers.Contains(currentController))
+    {
+        Layout = "_AdminLayout";
+    }
+    else
+    {
+        Layout = "_Layout";
+    }
 }
