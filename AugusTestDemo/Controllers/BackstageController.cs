@@ -9,12 +9,12 @@ using AugusTestDemo.Models.Base;
 
 namespace AugusTestDemo.Controllers
 {
-    public class AdminLoginController : Controller
+    public class BackstageController : Controller
     {
-        private readonly ILogger<AdminLoginController> _logger;
+        private readonly ILogger<BackstageController> _logger;
         private IConfiguration _config;
 
-        public AdminLoginController(ILogger<AdminLoginController> logger, IConfiguration config)
+        public BackstageController(ILogger<BackstageController> logger, IConfiguration config)
         {
             _logger = logger;
             this._config = config;

@@ -20,6 +20,7 @@
     <None Remove="Models\FeatherBean\" />
     <None Remove="Views\AdminLogin\" />
     <None Remove="Models\Base\" />
+    <None Remove="Views\BackstageLogin\" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.5" />
@@ -41,11 +42,14 @@
     <Folder Include="Data\" />
     <Folder Include="Migrations\" />
     <Folder Include="Models\FeatherBean\" />
-    <Folder Include="Views\AdminLogin\" />
+    <Folder Include="Views\Backstage\" />
     <Folder Include="Models\Base\" />
+    <Folder Include="wwwroot\either\" />
+    <Folder Include="Views\BackstageLogin\" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="wwwroot\image\" />
+    <Content Remove="wwwroot\either\" />
   </ItemGroup>
   <ItemGroup>
     <Content Update="Views\Home\Index.cshtml">

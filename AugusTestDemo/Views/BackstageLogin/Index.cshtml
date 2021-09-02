@@ -1,0 +1,33 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+*@
+@model AugusTestDemo.Models.Bean.AdminLogin
+@{
+
+}
+
+<main class="form-signin">
+    <form asp-action="LoginWithAdmin">
+        <img class="mb-4" src="../either/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+        <h1 class="h3 mb-3 fw-normal">請輸入管理員帳號</h1>
+
+        <div class="form-floating">
+            <input type="text" class="form-control" asp-for="Account" id="floatingInput" placeholder="admin">
+            <label for="floatingInput">Account</label>
+        </div>
+        <div class="form-floating">
+            <input type="password" class="form-control" asp-for="Password" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+        </div>
+
+        <div class="checkbox mb-3">
+            <label>
+                <input type="checkbox" value="remember-me"> Remember me
+            </label>
+        </div>
+
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        <p class="mt-5 mb-3 text-muted">©2021</p>
+    </form>
+</main>

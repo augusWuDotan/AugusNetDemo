@@ -3,12 +3,19 @@
     var currentController = ViewContext.RouteData.Values["Controller"].ToString();
     var currentAction = ViewContext.RouteData.Values["Action"].ToString();
 
-    //需要前往admin的
-    List<string> myControllers = new List<string> { "AdminLogin" };
+    //需要前往後台登入的
+    List<string> myBackstageLoginControllers = new List<string> { "BackstageLogin" };
 
-    if (myControllers.Contains(currentController))
+    //需要前往後台的
+    List<string> myBackstageControllers = new List<string> { "Backstage" };
+
+    if (myBackstageLoginControllers.Contains(currentController))
     {
-        Layout = "_AdminLayout";
+        Layout = "_BackstageLoginLayout";
+    }
+    else if (myBackstageControllers.Contains(currentController))
+    {
+        Layout = "_BackstageLayout";
     }
     else
     {
