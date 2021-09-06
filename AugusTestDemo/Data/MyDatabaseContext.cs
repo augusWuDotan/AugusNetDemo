@@ -15,6 +15,7 @@ namespace AugusTestDemo.Data
         public DbSet<Models.FeatherBean.FeatherImage> FeatherImages { get; set; }
         public DbSet<Models.FeatherBean.Product> Products { get; set; }
         public DbSet<Models.FeatherBean.ProductType> ProductTypes { get; set; }
+        public DbSet<Models.FeatherBean.Designer> Designers { get; set; }
 
         public DbSet<Models.FeatherBean.HomePage> HomePage { get; set; }
 
@@ -43,6 +44,8 @@ namespace AugusTestDemo.Data
             modelBuilder.Entity<Models.FeatherBean.FeatherImage>().ToTable("FeatherImage");
             modelBuilder.Entity<Models.FeatherBean.Product>().ToTable("Product");
             modelBuilder.Entity<Models.FeatherBean.ProductType>().ToTable("ProductType");
+            //設計師相關
+            modelBuilder.Entity<Models.FeatherBean.Designer>().ToTable("Designer");
             //主畫面需求
             modelBuilder.Entity<Models.FeatherBean.HomePage>().ToTable("HomePage");
             //本季花色

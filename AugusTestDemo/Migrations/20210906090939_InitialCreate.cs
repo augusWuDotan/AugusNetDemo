@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace AugusTestDemo.Migrations
 {
-    public partial class init : Migration
+    public partial class InitialCreate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -272,6 +272,25 @@ namespace AugusTestDemo.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Designer",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductTypeID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Designer", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Designer_ProductType_ProductTypeID",
+                        column: x => x.ProductTypeID,
+                        principalTable: "ProductType",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Product",
                 columns: table => new
                 {
@@ -382,6 +401,11 @@ namespace AugusTestDemo.Migrations
                 column: "CustomizedServiceModeID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Designer_ProductTypeID",
+                table: "Designer",
+                column: "ProductTypeID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_DesignerManuscript_DesignerManuscriptModeID",
                 table: "DesignerManuscript",
                 column: "DesignerManuscriptModeID");
@@ -444,6 +468,9 @@ namespace AugusTestDemo.Migrations
 
             migrationBuilder.DropTable(
                 name: "CustomizedServiceImage");
+
+            migrationBuilder.DropTable(
+                name: "Designer");
 
             migrationBuilder.DropTable(
                 name: "DesignerManuscriptImage");

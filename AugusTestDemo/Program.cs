@@ -31,7 +31,8 @@ namespace AugusTestDemo
                 try
                 {
                     var context = services.GetRequiredService<MyDatabaseContext>();
-                    context.Database.Migrate();
+                    DbInitializer.Initialize(context);
+                    //context.Database.Migrate();
                     //context.Database.EnsureCreated();
                 }
                 catch (Exception ex)

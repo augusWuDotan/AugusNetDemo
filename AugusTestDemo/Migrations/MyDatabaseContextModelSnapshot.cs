@@ -159,6 +159,23 @@ namespace AugusTestDemo.Migrations
                     b.ToTable("CustomizedServiceMode");
                 });
 
+            modelBuilder.Entity("AugusTestDemo.Models.FeatherBean.Designer", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ProductTypeID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ID");
+
+                    b.HasIndex("ProductTypeID");
+
+                    b.ToTable("Designer");
+                });
+
             modelBuilder.Entity("AugusTestDemo.Models.FeatherBean.DesignerManuscript", b =>
                 {
                     b.Property<int>("ID")
@@ -447,6 +464,17 @@ namespace AugusTestDemo.Migrations
                         .HasForeignKey("CustomizedServiceModeID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("AugusTestDemo.Models.FeatherBean.Designer", b =>
+                {
+                    b.HasOne("AugusTestDemo.Models.FeatherBean.ProductType", "ProductType")
+                        .WithMany()
+                        .HasForeignKey("ProductTypeID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ProductType");
                 });
 
             modelBuilder.Entity("AugusTestDemo.Models.FeatherBean.DesignerManuscript", b =>
