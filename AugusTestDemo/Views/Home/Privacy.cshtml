@@ -1,6 +1,16 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
-<h1>@ViewData["Title"]</h1>
+@*<h1>@ViewData["Title"]</h1>*@
 
-<p>Use this page to detail your site's privacy policy.</p>
+<style>
+    .mask {
+        width: 100%;
+        height: 100vh;
+        background: url(https://i.imgur.com/zC5DK6V.jpg) no-repeat top center;
+        -webkit-mask: -webkit-image-set(url(https://i.imgur.com/UtTNTk7.png) 1x, url(https://i.imgur.com/UDFge5o.png) 2x) no-repeat center center / contain;
+        mask: image-set(url(https://i.imgur.com/UtTNTk7.png) 1x, url(https://i.imgur.com/UDFge5o.png) 2x) no-repeat center center / contain;
+    }
+</style>
+
+<div class="mask"> </div>
